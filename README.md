@@ -17,9 +17,10 @@ What does it show?
     * Python [venv] indicator.
     * `✘` when there was an error.
     * `V` when in a vim terminal.
-    * Git information:
-      * Current branch name, position, or commit short hash.
-      * `⬆` and `⬇` when ahead and behind of remote.
+    * Git information when you are in a git repo:
+      * Current branch name. When in ['detached HEAD' state], the position or
+        commit short hash.
+      * `⬆` and/or `⬇` when there are commits ahead and/or behind of remote, respectively.
       * `✭` when there are stashed states.
       * `✚` when there are indexed files.
       * `✱` when there are unindexed files.
@@ -32,4 +33,5 @@ Requires Zim's [git-info] module to show git information.
 
 [sorin]: https://github.com/sorin-ionescu/prezto/blob/master/modules/prompt/functions/prompt_sorin_setup
 [venv]: https://docs.python.org/3/library/venv.html
+['detached HEAD' state]: http://gitfaq.org/articles/what-is-a-detached-head.html
 [git-info]: https://github.com/zimfw/git-info
