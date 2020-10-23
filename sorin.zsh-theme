@@ -39,8 +39,12 @@ _prompt_sorin_keymap_select() {
   zle reset-prompt
   zle -R
 }
-autoload -Uz add-zle-hook-widget && \
-    add-zle-hook-widget -Uz keymap-select _prompt_sorin_keymap_select
+if autoload -Uz is-at-least && is-at-least 5.3; then
+  autoload -Uz add-zle-hook-widget && \
+      add-zle-hook-widget -Uz keymap-select _prompt_sorin_keymap_select
+else
+  zle -N zle-keymap-select _prompt_sorin_keymap_select
+fi
 
 VIRTUAL_ENV_DISABLE_PROMPT=1
 
