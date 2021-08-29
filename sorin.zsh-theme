@@ -46,7 +46,7 @@ else
   zle -N zle-keymap-select _prompt_sorin_keymap_select
 fi
 
-VIRTUAL_ENV_DISABLE_PROMPT=1
+typeset -g VIRTUAL_ENV_DISABLE_PROMPT=1
 
 setopt nopromptbang prompt{cr,percent,sp,subst}
 
