@@ -5,7 +5,7 @@
 # A simplified fork of the original sorin theme from
 # https://github.com/sorin-ionescu/prezto/blob/master/modules/prompt/functions/prompt_sorin_setup
 #
-# Requires the `git-info` zmodule to be included in the .zimrc file.
+# Requires the `prompt-pwd` and `git-info` zmodules to be included in the .zimrc file.
 
 #
 # 16 Terminal Colors
@@ -49,6 +49,8 @@ fi
 typeset -g VIRTUAL_ENV_DISABLE_PROMPT=1
 
 setopt nopromptbang prompt{cr,percent,sp,subst}
+
+zstyle ':zim:prompt-pwd:fish-style' dir-length 1
 
 typeset -gA git_info
 if (( ${+functions[git-info]} )); then
