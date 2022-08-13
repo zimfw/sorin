@@ -72,6 +72,6 @@ if (( ${+functions[git-info]} )); then
 fi
 
 # Define prompts.
-PS1='${SSH_TTY:+"%F{9}%n%F{7}@%F{3}%m "}%B%F{4}%~%b%(!. %B%F{1}#%b.)$(_prompt_sorin_vimode)%f '
+PS1='${SSH_TTY:+"%F{9}%n%F{7}@%F{3}%m "}%B%F{4}$(prompt-pwd)%b%(!. %B%F{1}#%b.)$(_prompt_sorin_vimode)%f '
 RPS1='${VIRTUAL_ENV:+"%F{3}(${VIRTUAL_ENV:t})"}%(?:: %F{1}✘ %?)${VIM:+" %B%F{6}V%b"}${(e)git_info[status]}%f'
 SPROMPT='zsh: correct %F{1}%R%f to %F{2}%r%f [nyae]? '

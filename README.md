@@ -28,10 +28,10 @@ What does it show?
 
 Requirements
 ------------
-
-Requires Zim's [git-info] module to show git information.
+Requires Zim's [prompt-pwd] module to show the current working directory, and [git-info] to show git information.
 
 [sorin]: https://github.com/sorin-ionescu/prezto/blob/master/modules/prompt/functions/prompt_sorin_setup
 [venv]: https://docs.python.org/3/library/venv.html
 ['detached HEAD' state]: http://gitfaq.org/articles/what-is-a-detached-head.html
+[prompt-pwd]: https://github.com/zimfw/prompt-pwd
 [git-info]: https://github.com/zimfw/git-info
