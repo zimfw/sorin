@@ -32,7 +32,30 @@ Advanced settings
 You can customize how the current working directory is shown with the
 [prompt-pwd module settings].
 
-These advanced settings must be overridden after where the theme is initialized.
+The git indicators can be customized by changing the following git-info module
+context formats:
+
+| Context name | Description              | Default format
+| ------------ | ------------------------ | --------------
+| action       | Special action name      | `%F{default}:%F{1}%s`
+| ahead        | Ahead of remote          | ` %F{5}⬆`
+| behind       | Behind remote            | ` %F{5}⬇`
+| branch       | Branch name              | ` %F{2}%b`
+| commit       | Commit short hash        | ` %F{3}%c`
+| indexed      | Indexed files            | ` %F{2}✚`
+| unindexed    | Unindexed files          | ` %F{4}✱`
+| position     | Commits from nearest tag | ` %F{5}%p`
+| stashed      | Stashed states           | ` %F{6}✭`
+| untracked    | Untracked files          | ` %F{default}◼`
+
+Use the following command to override a git-info context format:
+
+    zstyle ':zim:git-info:<context_name>' format '<new_format>'
+
+For detailed information about these and other git-info settings, check the
+[git-info documentation].
+
+These advanced settings must be overridden after the theme is initialized.
 
 Requirements
 ------------
@@ -43,5 +66,6 @@ Requires Zim's [prompt-pwd] module to show the current working directory, and
 [venv]: https://docs.python.org/3/library/venv.html
 ['detached HEAD' state]: https://git-scm.com/docs/git-checkout#_detached_head
 [prompt-pwd module settings]: https://github.com/zimfw/prompt-pwd/blob/master/README.md#settings
+[git-info documentation]: https://github.com/zimfw/git-info/blob/master/README.md#settings
 [prompt-pwd]: https://github.com/zimfw/prompt-pwd
 [git-info]: https://github.com/zimfw/git-info
