@@ -10,28 +10,19 @@
 #
 # 16 Terminal Colors
 # -- ---------------
-#  0 black
 #  1 red
 #  2 green
 #  3 yellow
 #  4 blue
 #  5 magenta
 #  6 cyan
-#  7 white
-#  8 bright black
-#  9 bright red
-# 10 bright green
-# 11 bright yellow
-# 12 bright blue
-# 13 bright magenta
-# 14 bright cyan
-# 15 bright white
+# default white
 #
 
 _prompt_sorin_vimode() {
   case ${KEYMAP} in
-    vicmd) print -n ' %B%F{2}❮%F{3}❮%F{1}❮%b' ;;
-    *) print -n ' %B%F{1}❯%F{3}❯%F{2}❯%b' ;;
+    vicmd) print -n ' %F{2}❮%F{3}❮%F{1}❮' ;;
+    *) print -n ' %F{1}❯%F{3}❯%F{2}❯' ;;
   esac
 }
 
@@ -56,24 +47,24 @@ typeset -gA git_info
 if (( ${+functions[git-info]} )); then
   # Set git-info parameters.
   zstyle ':zim:git-info' verbose yes
-  zstyle ':zim:git-info:action' format '%F{7}:%F{9}%s'
-  zstyle ':zim:git-info:ahead' format ' %F{13}⬆'
-  zstyle ':zim:git-info:behind' format ' %F{13}⬇'
+  zstyle ':zim:git-info:action' format '%F{default}:%F{1}%s'
+  zstyle ':zim:git-info:ahead' format ' %F{5}⬆'
+  zstyle ':zim:git-info:behind' format ' %F{5}⬇'
   zstyle ':zim:git-info:branch' format ' %F{2}%b'
   zstyle ':zim:git-info:commit' format ' %F{3}%c'
   zstyle ':zim:git-info:indexed' format ' %F{2}✚'
   zstyle ':zim:git-info:unindexed' format ' %F{4}✱'
-  zstyle ':zim:git-info:position' format ' %F{13}%p'
+  zstyle ':zim:git-info:position' format ' %F{5}%p'
   zstyle ':zim:git-info:stashed' format ' %F{6}✭'
-  zstyle ':zim:git-info:untracked' format ' %F{7}◼'
+  zstyle ':zim:git-info:untracked' format ' %F{default}◼'
   zstyle ':zim:git-info:keys' format \
-    'status' '%%B$(coalesce "%b" "%p" "%c")%s%A%B%S%i%I%u%f%%b'
+    'status' '$(coalesce "%b" "%p" "%c")%s%A%B%S%i%I%u'
 
   # Add hook for calling git-info before each command.
   autoload -Uz add-zsh-hook && add-zsh-hook precmd git-info
 fi
 
 # Define prompts.
-PS1='${SSH_TTY:+"%F{9}%n%F{7}@%F{3}%m "}%B%F{4}$(prompt-pwd)%b%(!. %B%F{1}#%b.)$(_prompt_sorin_vimode)%f '
-RPS1='${VIRTUAL_ENV:+"%F{3}(${VIRTUAL_ENV:t})"}%(?:: %F{1}✘ %?)${VIM:+" %B%F{6}V%b"}${(e)git_info[status]}%f'
+PS1='${SSH_TTY:+"%B%F{1}%n%f@%b%F{3}%m "}%B%F{4}$(prompt-pwd)%(!. %F{1}#.)$(_prompt_sorin_vimode)%f%b '
+RPS1='${VIRTUAL_ENV:+"%F{3}(${VIRTUAL_ENV:t})"}%(?:: %F{1}✘ %?)%B${VIM:+" %F{6}V"}${(e)git_info[status]}%f%b'
 SPROMPT='zsh: correct %F{1}%R%f to %F{2}%r%f [nyae]? '
