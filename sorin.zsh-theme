@@ -58,7 +58,7 @@ if (( ${+functions[git-info]} )); then
   zstyle ':zim:git-info:stashed' format ' %F{6}✭'
   zstyle ':zim:git-info:untracked' format ' %F{default}◼'
   zstyle ':zim:git-info:keys' format \
-    'status' '$(coalesce "%b" "%p" "%c")%s%A%B%S%i%I%u'
+    'status' '%b$(coalesce %p %c)%s%A%B%S%i%I%u'
 
   # Add hook for calling git-info before each command.
   autoload -Uz add-zsh-hook && add-zsh-hook precmd git-info
