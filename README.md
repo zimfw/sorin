@@ -24,6 +24,7 @@ What does it show?
       * `✭` when there are stashed states.
       * `✚` when there are indexed files.
       * `✱` when there are unindexed files.
+      * `═` when there are unmerged files.
       * `◼` when there are untracked files.
 
 Advanced settings
@@ -46,6 +47,7 @@ context formats:
 | unindexed    | Unindexed files          | ` %F{4}✱`
 | position     | Commits from nearest tag | ` %F{5}%p`
 | stashed      | Stashed states           | ` %F{6}✭`
+| unmerged     | Unmerged files           | ` %F{3}═`
 | untracked    | Untracked files          | ` %F{default}◼`
 
 Use the following command to override a git-info context format:
@@ -55,12 +57,14 @@ Use the following command to override a git-info context format:
 For detailed information about these and other git-info settings, check the
 [git-info documentation].
 
-These advanced settings must be overridden after the theme is initialized.
+These advanced settings must be defined at the bottom of your `~/.zshrc`, after
+the modules are initialized with `source ${ZIM_HOME}/init.zsh`, in order to
+override the theme defaults.
 
 Requirements
 ------------
-Requires Zim's [prompt-pwd] module to show the current working directory, and
-[git-info] to show git information.
+Requires Zim Framework's [prompt-pwd] module to show the current working
+directory, and [git-info] to show git information.
 
 [sorin]: https://github.com/sorin-ionescu/prezto/blob/master/modules/prompt/functions/prompt_sorin_setup
 [venv]: https://docs.python.org/3/library/venv.html
