@@ -22,7 +22,9 @@ What does it show?
         commit short hash.
       * `⬆` and/or `⬇` when there are commits ahead and/or behind of remote, respectively.
       * `✭` when there are stashed states.
-      * `✚` when there are indexed files.
+      * `✚` when there are indexed added or modified files.
+      * `✖` when there are indexed deleted files.
+      * `➜` when there are indexed renamed files.
       * `✱` when there are unindexed files.
       * `═` when there are unmerged files.
       * `◼` when there are untracked files.
@@ -36,19 +38,21 @@ You can customize how the current working directory is shown with the
 The git indicators can be customized by changing the following git-info module
 context formats:
 
-| Context name | Description              | Default format
-| ------------ | ------------------------ | --------------
-| action       | Special action name      | `%F{default}:%F{1}%s`
-| ahead        | Ahead of remote          | ` %F{5}⬆`
-| behind       | Behind remote            | ` %F{5}⬇`
-| branch       | Branch name              | ` %F{2}%b`
-| commit       | Commit short hash        | ` %F{3}%c`
-| indexed      | Indexed files            | ` %F{2}✚`
-| unindexed    | Unindexed files          | ` %F{4}✱`
-| position     | Commits from nearest tag | ` %F{5}%p`
-| stashed      | Stashed states           | ` %F{6}✭`
-| unmerged     | Unmerged files           | ` %F{3}═`
-| untracked    | Untracked files          | ` %F{default}◼`
+| Context name  | Description                     | Default format
+| ------------- | ------------------------------- | --------------
+| branch        | Branch name                     | ` %F{2}%b`
+| position      | Tag near current commit         | ` %F{5}%p`
+| commit        | Commit short hash               | ` %F{3}%c`
+| action        | Special action name             | `%f:%F{1}%s`
+| ahead         | Ahead of remote                 | ` %F{5}⬆`
+| behind        | Behind remote                   | ` %F{5}⬇`
+| stashed       | Stashed states                  | ` %F{6}✭`
+| indexed       | Indexed added or modified files | ` %F{2}✚`
+| index-deleted | Indexed deleted files           | ` %F{1}✖`
+| index-renamed | Indexed renamed files           | ` %F{5}➜`
+| unindexed     | Unindexed files                 | ` %F{4}✱`
+| unmerged      | Unmerged files                  | ` %F{3}═`
+| untracked     | Untracked files                 | ` %F{default}◼`
 
 Use the following command to override a git-info context format:
 
