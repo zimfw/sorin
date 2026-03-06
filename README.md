@@ -9,7 +9,7 @@ What does it show?
 ------------------
 
   * On the left:
-    * `username@hostname` when in a ssh session.
+    * `username@hostname` when in an SSH session.
     * Working directory.
     * `#` when you're root.
     * Keymap indicator.
@@ -18,8 +18,9 @@ What does it show?
     * `✘` when there was an error.
     * `V` when in a vim terminal.
     * Git information when you are in a git repo:
-      * Current branch name. When in ['detached HEAD' state], the position or
-        commit short hash.
+      * Current branch name. When in ['detached HEAD' state], the name of tag
+        that contains current commit or the commit short hash.
+      * Git action, when there's an operation in progress.
       * `⬆` and/or `⬇` when there are commits ahead and/or behind of remote, respectively.
       * `✭` when there are stashed states.
       * `✚` when there are indexed added or modified files.
